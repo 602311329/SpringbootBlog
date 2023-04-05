@@ -1,0 +1,9 @@
+com\txgc\blog\admain\model\params\PageParam.class
+com\txgc\blog\admain\service\PermissionService.class
+com\txgc\blog\admain\mapper\PermissionMapper.class
+com\txgc\blog\admain\vo\PageResult.class
+com\txgc\blog\admain\Controller\AdminController.class
+com\txgc\blog\admain\vo\Result.class
+com\txgc\blog\admain\AdminApp.class
+com\txgc\blog\admain\config\MybatisPlusConfig.class
+com\txgc\blog\admain\pojo\Permission.class
