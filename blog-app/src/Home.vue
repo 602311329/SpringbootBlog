@@ -1,17 +1,17 @@
 <template>
   <div id="home">
     <el-container>
-    	
+<!--    	头部-->
     	<base-header :activeIndex="activeIndex"></base-header>
-		  
+<!--		  容器-->
 		  <router-view class="me-container"/>
-		  
+<!--		  尾部-->
 			<base-footer v-show="footerShow"></base-footer>
-		  
+
 		</el-container>
-		
+
   </div>
-  
+
 </template>
 
 <script>

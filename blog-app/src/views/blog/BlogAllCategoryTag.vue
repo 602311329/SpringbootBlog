@@ -72,10 +72,10 @@
       },
       categoryTagTitle (){
         if(this.currentActiveName == 'category'){
-          return '文章分类 - 码神之路'
+          return '文章分类 - 厚积薄发'
         }
         console.info('dddd')
-        return '标签 - 码神之路'
+        return '标签 - 厚积薄发'
       }
     },
     methods: {
