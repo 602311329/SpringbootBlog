@@ -14,8 +14,10 @@ public class WebMVCConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         //跨域配置，不可设置为*，不安全, 前后端分离项目，可能域名不一致
-        //本地测试 端口不一致 也算跨域
+        //本地测试 端口不一致 也算跨域  配置域名或当前公网IP地址
         registry.addMapping("/**").allowedOrigins("http://localhost:8080");
+        //registry.addMapping("/**").allowedOrigins("http://blog.mszlu.com");
+        //registry.addMapping("/**").allowedOrigins("118.31.57.223");  ???
         //registry.addMapping("/**");
     }
 
