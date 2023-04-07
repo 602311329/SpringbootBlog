@@ -17,6 +17,12 @@ import java.util.List;
 public class ArticleController {
     @Autowired(required = false)
     private ArticleService articleService;
+    @PostMapping("search")
+    public Result search(@RequestBody ArticleParam articleParam){
+        //写一个搜索接口
+        String search = articleParam.getSearch();
+        return articleService.searchArticle(search);
+    }
     /**
      * 首页文章列表  分页
      * @param pageParams
