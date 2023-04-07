@@ -30,6 +30,7 @@ com\txgc\blog\dao\mapper\ArticleMapper.class
 com\txgc\blog\dao\mapper\CategoryMapper.class
 com\txgc\blog\service\TagService.class
 com\txgc\blog\vo\LoginUserVo.class
+com\txgc\blog\vo\ArticleMessage.class
 com\txgc\blog\vo\CategoryVo.class
 com\txgc\blog\dao\mapper\ArticleTagMapper.class
 com\txgc\blog\dao\mapper\SysUserMapper.class

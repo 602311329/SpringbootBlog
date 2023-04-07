@@ -17,7 +17,7 @@
               <img class="me-view-picture" :src="article.author.avatar"></img>
             </a>
             <div class="me-view-info">
-              <span>{{article.author}}</span>
+              <span>{{article.author.nickname}}</span>
               <div class="me-view-meta">
                 <span>{{article.createDate | format}}</span>
                 <span>阅读   {{article.viewCounts}}</span>
