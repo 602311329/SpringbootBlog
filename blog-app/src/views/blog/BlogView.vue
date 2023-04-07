@@ -193,9 +193,10 @@
         publishComment(parms,this.$store.state.token).then(data => {
           if(data.success){
             that.$message({type: 'success', message: '评论成功', showClose: true})
+            //评论完成的数据添加到评论列表中——comments是查询到的评论列表的对象
             that.comment.content = ''
-            that.comments.unshift(data.data)
-            that.commentCountsIncrement()
+            that.comments.unshift(data.data);
+            that.commentCountsIncrement();
 
           }else{
                that.$message({type: 'error', message: data.msg, showClose: true})

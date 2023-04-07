@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("login")
 public class LoginController {
 //不好，只负责user表的相关操作，业务表另设一个service
-    //    @Autowired
-//    private SysUserService sysUserService;
     @Autowired
     private LoginService loginService;
     @PostMapping

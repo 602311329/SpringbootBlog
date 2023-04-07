@@ -1,6 +1,10 @@
 package com.txgc.blog.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.txgc.blog.dao.mapper.ArticleMapper;
 import com.txgc.blog.dao.mapper.CommentMapper;
+import com.txgc.blog.dao.pojo.Article;
 import com.txgc.blog.dao.pojo.Comment;
 import com.txgc.blog.dao.pojo.SysUser;
 import com.txgc.blog.service.CommentsService;
@@ -10,6 +14,7 @@ import com.txgc.blog.vo.CommentVo;
 import com.txgc.blog.vo.Result;
 import com.txgc.blog.vo.UserVo;
 import com.txgc.blog.vo.params.CommentParam;
+import org.apache.catalina.Wrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +26,8 @@ import java.util.List;
 public class CommentsServiceImpl implements CommentsService {
     @Autowired
     private CommentMapper commentMapper;
+    @Autowired
+    private ArticleMapper articleMapper;
     @Autowired
     private SysUserService sysUserService;
     @Override
@@ -57,7 +64,12 @@ public class CommentsServiceImpl implements CommentsService {
         Long toUserId = commentParam.getToUserId();
         comment.setToUid(toUserId == null ? 0 : toUserId);
         this.commentMapper.insert(comment);
-        return Result.success(null);
+        UpdateWrapper<Article> updateWrapper = Wrappers.update();
+        updateWrapper.eq("id",comment.getArticleId());
+        updateWrapper.setSql(true,"comment_counts=comment_counts+1");
+        this.articleMapper.update(null,updateWrapper);
+        CommentVo commentVo=copy(comment);
+        return Result.success(commentVo);
     }
 
     private List<CommentVo> copyList(List<Comment> comments) {
