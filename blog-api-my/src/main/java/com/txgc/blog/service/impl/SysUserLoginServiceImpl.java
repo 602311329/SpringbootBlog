@@ -7,6 +7,7 @@ import com.txgc.blog.service.SysUserLoginService;
 import com.txgc.blog.vo.ErrorCode;
 import com.txgc.blog.vo.LoginUserVo;
 import com.txgc.blog.vo.Result;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,10 @@ public class SysUserLoginServiceImpl implements SysUserLoginService {
         SysUser sysUser=loginService.checkToken(token);
         if(sysUser==null){
             return Result.fail(ErrorCode.TOKEN_ERROR.getCode(), ErrorCode.TOKEN_ERROR.getMsg());
+        }
+        String userJson = redisTemplate.opsForValue().get("TOKEN_" + token);
+        if (StringUtils.isBlank(userJson)){
+            return Result.fail(ErrorCode.NO_LOGIN.getCode(),ErrorCode.NO_LOGIN.getMsg());
         }
         LoginUserVo loginUserVo=new LoginUserVo();
         loginUserVo.setId(String.valueOf(sysUser.getId()));

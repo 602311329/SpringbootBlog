@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+//@Repository
 public interface ArticleMapper extends BaseMapper<Article> {
     List<Archives> listArchives();
     IPage<Article> listArticle(Page<Article> page,

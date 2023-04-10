@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+//@Repository
 public interface TagMapper extends BaseMapper<Tag> {
     /**
      * 根据文章id查询标签列表

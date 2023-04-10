@@ -18,6 +18,7 @@ import com.txgc.blog.utils.UserThreadlocal;
 import com.txgc.blog.vo.*;
 import com.txgc.blog.vo.params.ArticleParam;
 import com.txgc.blog.vo.params.PageParams;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
@@ -123,7 +125,9 @@ public class ArticleServiceImpl implements ArticleService {
          * 3.
          */
         Article article = this.articleMapper.selectById(articleId);
-        ArticleVo articleVo = copy(article, true, true,true,true);
+        log.info(article.getId().toString());
+        ArticleVo articleVo = copy(article, true, true, true, true);
+        log.info(articleVo.getId().toString());
         //查看完文章，新增阅读数，有没有问题？
         //从查看完文章之后，本应该直接返回数据，这时做了一个更新操作，更新时加锁，就会堵塞其他的读操作，性能低
         //更新增加了此次接口的耗时   一旦更新出问题，不能影响查看文章的操作

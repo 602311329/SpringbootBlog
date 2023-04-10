@@ -5,7 +5,7 @@ import com.txgc.blog.dao.pojo.Comment;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public interface CommentMapper extends BaseMapper<Comment> {
 
 }

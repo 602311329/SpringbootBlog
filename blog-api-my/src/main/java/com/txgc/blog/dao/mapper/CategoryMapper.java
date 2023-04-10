@@ -6,6 +6,6 @@ import com.txgc.blog.dao.pojo.Category;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public interface CategoryMapper extends BaseMapper<Category> {
 }
