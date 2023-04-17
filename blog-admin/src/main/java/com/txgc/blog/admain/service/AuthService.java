@@ -24,7 +24,8 @@ public class AuthService {
         //请求路径
         String requestURI = request.getRequestURI();
         log.info("request url:{}", requestURI);
-        //true代表放行 false 代表拦截
+        //返回true代表放行 false 代表拦截
+        //获取当前用户登陆的信息
         Object principal = authentication.getPrincipal();
         if (principal == null || "anonymousUser".equals(principal)){
             //未登录（是否是匿名用户）
@@ -41,7 +42,7 @@ public class AuthService {
             return true;
         }
         List<Permission> permissions = adminService.findPermissionsByAdminId(admin.getId());
-        //取URI中不带参数的那部分
+        //取URI中不带参数的那部分——请求路径
         requestURI = StringUtils.split(requestURI,'?')[0];
         for (Permission permission : permissions) {
             if (requestURI.equals(permission.getPath())){

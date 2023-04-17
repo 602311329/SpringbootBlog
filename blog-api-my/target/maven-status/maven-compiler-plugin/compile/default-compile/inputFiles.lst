@@ -34,6 +34,7 @@ D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\com
 D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\service\TagService.java
 D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\service\impl\SysUserServiceImpl.java
 D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\vo\LoginUserVo.java
+D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\vo\ArticleMessage.java
 D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\Controller\CategoryController.java
 D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\Controller\CommentsController.java
 D:\JAVA学习\项目\bolg_springboot\blog-api-my\src\main\java\com\txgc\blog\dao\pojo\ArticleBody.java

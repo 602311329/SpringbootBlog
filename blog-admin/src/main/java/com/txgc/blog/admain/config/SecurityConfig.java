@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/img/**").permitAll()
                 .antMatchers("/js/**").permitAll()  //对此目录进行放行，不需要登陆也可以进行访问
                 .antMatchers("/plugins/**").permitAll()
-                .antMatchers("/admin/**").access("@authService.auth(request,authentication)") //自定义service 来去实现实时的权限认证，service返回true表示认证通过
+                .antMatchers("/admin/**").access("@authService.auth(request,authentication)") //访问admain/，自定义service 来去实现实时的权限认证，service返回true表示认证通过
                 .antMatchers("/pages/**").authenticated()   //只要登陆成功就可以访问
                 .and().formLogin()
                 .loginPage("/login.html") //自定义的登录页面
